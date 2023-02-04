@@ -5,19 +5,14 @@ import './App.css';
 function App() {
   const [show, setShow] = useState(false);
   const showAnswer = useRef(null);
+  const answer = "One of the advantage of the useRef hook is that it not rerenders to the DOM.";
 
   const changeStyle = () => {
-    console.log(showAnswer.current);
-    if (show) {
-      showAnswer.current.style.display = 'none';
-    }
-    else {
-      showAnswer.current.style.display = 'block';
-    }
-    setShow(!show);
+    /* Write your code here */
+    
   } 
   const inLineStyle = {
-    display: 'none'
+    visibility: 'hidden'
   }
 
   return (
@@ -26,9 +21,24 @@ function App() {
 
       <button id="btn" data-cy="change" onClick={changeStyle}>{show ? "Hide" : "Show"} Answer</button>
       
-      <h3 id="sol" ref={showAnswer} style={inLineStyle}>useRef hook not rerenders to the DOM.</h3>
+      {/* This element should should show the answer  */}
+      <h3 id="sol" ref={showAnswer} style={inLineStyle}> </h3>
     </div>
   );
 }
 
 export default App;
+
+/*
+  Solution =>
+
+    if (show) {
+      showAnswer.current.innerHTML = '';
+      showAnswer.current.style.visibility = 'hidden';
+    }
+    else {
+      showAnswer.current.innerHTML = answer;
+      showAnswer.current.style.visibility = 'visible';
+    }
+    setShow(!show);
+*/

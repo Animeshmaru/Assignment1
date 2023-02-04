@@ -7,10 +7,10 @@ describe('<App />', () => {
     
     cy.title().should('eq', 'Components App');
     
-    cy.contains('What is the advantage of useRef Hook?')
+    cy.get('#heading').contains('What is the advantage of useRef Hook?')
     
     cy.get('#btn').click();
     
-    cy.contains('useRef hook not rerenders to the DOM.')
+    cy.get('#sol').contains('One of the advantage of the useRef hook is that it not rerenders to the DOM.')
   })
 })
